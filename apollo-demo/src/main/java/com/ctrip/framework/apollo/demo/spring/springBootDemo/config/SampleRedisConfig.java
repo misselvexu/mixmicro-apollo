@@ -65,10 +65,10 @@ import javax.annotation.PostConstruct;
  *
  * @author Jason Song(song_s@ctrip.com)
  */
-@ConditionalOnProperty("redis.cache.enabled")
+//@ConditionalOnProperty("redis.cache.enabled")
 @ConfigurationProperties(prefix = "redis.cache")
 @Component("sampleRedisConfig")
-@RefreshScope
+//@RefreshScope
 public class SampleRedisConfig {
 
   private static final Logger logger = LoggerFactory.getLogger(SampleRedisConfig.class);

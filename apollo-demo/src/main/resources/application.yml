@@ -19,4 +19,6 @@ apollo:
     eagerLoad:
       enabled: true
     # will inject 'application' and 'TEST1.apollo' namespaces in bootstrap phase
-    namespaces: application,TEST1.apollo,application.yaml
+    namespaces: application
+  meta: http://beta-apollo-config.hgj.net
+  cluster: k8s
