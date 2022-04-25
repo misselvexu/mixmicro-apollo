@@ -510,7 +510,7 @@ Apollo also supports integration with Spring (Spring 3.1.1+), and only requires 
 
 Apollo currently supports both the more traditional `XML-based` configuration and the currently more popular `Java-based (recommended)` configuration.
 
-In case of Spring Boot environments, it is recommended to refer to [3.2.1.3 Spring Boot integration methods (recommended)](#_3213-Spring Boot integration methods (recommended)) for configuration.
+In case of Spring Boot environments, it is recommended to refer to [3.2.1.3 Spring Boot integration methods (recommended)](#_3213-Spring-Boot-integration-methods-(recommended)) for configuration.
 
 Note that if you have previously used `org.springframework.beans.factory.config.PropertyPlaceholderConfigurer`, please replace it with `org.springframework.context.support. PropertySourcesPlaceholderConfigurer`. It is not recommended to use PropertyPlaceholderConfigurer after Spring 3.1, use PropertySourcesPlaceholderConfigurer instead.
 

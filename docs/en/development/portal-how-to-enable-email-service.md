@@ -2,7 +2,7 @@ When configuring the release, we hope to release the information email notificat
 
 Since each company's mail service often has different implementations, Apollo defines some SPIs for decoupling. The key to Apollo's access to mail services is to implement these SPIs.
 
-## 1. Implementation method 1: Use the smtp mail service provided by Apollo
+## 1. Implementation-1: Use the smtp mail service provided by Apollo
 
 ### 1.1 Access steps
 
@@ -20,9 +20,9 @@ Configure the following parameters in the ApolloPortalDB.ServerConfig table or t
 * **email.template.rollback.module.diff** The diff module for rolling back emails.
 * **email.template.release.module.rules** Grayscale rules module for grayscale release.
 
-We provide [Sample Email Template] (#3, Email Template Sample) for your convenience.
+We provide [Sample Email Template](#_3-Email-template-sample) for your convenience.
 
-## 2. Implementation method 2: Access the company's unified mail service
+## 2. Implementation-2: Access the company's unified mail service
 
 Similar to SSO, each company also has its own mail service implementation, so we define [EmailService](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/EmailService.java) interface, there are two implementation classes:
 
@@ -42,7 +42,7 @@ Similar to SSO, each company also has its own mail service implementation, so we
 * **email.template.rollback.module.diff** The diff module for rolling back emails.
 * **email.template.release.module.rules** Grayscale rules module for grayscale release.
 
-We provide [Sample Email Template] (#3, Email Template Sample) for your convenience.
+We provide  [Sample Email Template](#_3-Email-template-sample)  for your convenience.
 
 Note: using different implementations at runtime is achieved through [Profiles](http://docs.spring.io/autorepo/docs/spring-boot/current/reference/html/boot-features-profiles.html), For example, if your own Email implementation is in the `custom` profile, you can specify -Dapollo_profile=github,custom in the packaging script. Among them, `github` is a required profile of Apollo, which is used for database configuration, and `custom` is a profile that you implement yourself. Also note that in [EmailConfiguration](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/configuration/EmailConfiguration.java) to modify the default implementation condition `@Profile({"!custom"})`.
 
@@ -68,7 +68,7 @@ The following are the template content styles for publishing emails and rolling 
 ### 3.2 email.template.release.module.diff
 
 ```html
-<h3>变更的配置</h3>
+<h3>Changed Configuration Items</h3>
 <table class="table table-bordered">
     <tr>
         <td width="10%"><b>Type</b></td>
@@ -85,13 +85,13 @@ The following are the template content styles for publishing emails and rolling 
 ```html
 <div>
     <br><br>
-    <h3>变更的配置</h3>
+    <h3>Changed Configuration Items</h3>
     <table class="table table-bordered">
         <tr>
             <td width="10%"><b>Type</b></td>
             <td width="20%"><b>Key</b></td>
-            <td width="35%"><b>回滚前</b></td>
-            <td width="35%"><b>回滚后</b></td>
+            <td width="35%"><b>Before Rollback</b></td>
+            <td width="35%"><b>After Rollback</b></td>
         </tr>
         #{diffContent}
     </table>
@@ -104,7 +104,7 @@ The following are the template content styles for publishing emails and rolling 
 ```html
 <div>
     <br>
-    <h3>灰度规则</h3>
+    <h3>Grayscale Rules</h3>
     #{rulesContent}
     <br>
 </div>

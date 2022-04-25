@@ -699,7 +699,7 @@ Please refer to [Apollo Performance Test Report](en/misc/apollo-benchmark.md) fo
 
 ## 3.3 High Availability, Dual Environment
 
-As in [2.3 Single machine, dual environment](#_23-Single machine, dual environment), if you want to make both SIT and UAT highly available, you only need to add more machines to each environment, as shown below, each environment has 2 Linux Servers, if you have performance requirements, you can use more machines in each environment to deploy Config Service that can be
+As in [2.3 Single machine, dual environment](#_23-Single-machine-dual-environment), if you want to make both SIT and UAT highly available, you only need to add more machines to each environment, as shown below, each environment has 2 Linux Servers, if you have performance requirements, you can use more machines in each environment to deploy Config Service that can be
 
 ```mermaid
 flowchart LR
@@ -800,7 +800,7 @@ Portal adds the information of the new environment, pointing to apollo.meta of B
 
 In the actual production environment, many companies isolate their test environment, so the production environment is a single environment, with only one PRO environment
 
-When there is only 1 server room, refer to [3.2 Highly available, single environment](#_32-Single machine, dual environment)
+When there is only 1 server room, refer to [3.2 Highly available, single environment](#_32-Highly-available-singleenvironment)
 
 ## 3.6 Highly available, single environment, dual server rooms
 

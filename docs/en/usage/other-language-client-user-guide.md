@@ -12,7 +12,7 @@ First you need to access your application in Apollo, you can refer to [applicati
 
 This interface will fetch the configuration from the cache and is suitable for more frequent configuration pull requests, such as a simple polling of the configuration every 30 seconds.
 
-Since the cache has a delay of at most one second, if you need to work with configuration push notifications to achieve real-time configuration updates, please refer to [1.3 Reading configuration from Apollo via Http interface without cache](#_13-Reading configuration from Apollo via Http interface without cache).
+Since the cache has a delay of at most one second, if you need to work with configuration push notifications to achieve real-time configuration updates, please refer to [1.3 Reading configuration from Apollo via Http interface without cache](#_13-Reading-configuration-from-Apollo-via-Http-interface-without-cache).
 
 ### 1.2.1 Http interface description
 
@@ -127,7 +127,7 @@ Once you have the notifications Map, you can request services. Here we describe 
 If the notificationId is found to be older than the server, the latest notificationId of the corresponding namespace, HttpStatus 200, will be returned directly. 5.
 5. After the client gets the server side return, determine the return HttpStatus 6.
 6. If the returned HttpStatus is 304, that the configuration has not changed, re-execute step 1
-7. If the returned HttpStauts is 200, the configuration has changed, for the change of namespace to pull configuration from the server again, see [1.3 Read configuration from Apollo through the Http interface without cache](#_13-Reading configuration from Apollo via Http interface without cache). Also update the notificationId in the notifications map. re-run step 1.
+7. If the returned HttpStauts is 200, the configuration has changed, for the change of namespace to pull configuration from the server again, see [1.3 Read configuration from Apollo through the Http interface without cache](#_13-Reading-configuration-from-Apollo-via-Http-interface-without-cache). Also update the notificationId in the notifications map. re-run step 1.
 
 
 ### 1.4.2 Http interface description
@@ -176,7 +176,7 @@ Header information to be set.
 
 | Header        | Value                                                        | Remarks                                                      |
 | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Authorization | Apollo ${appId}:${signature}                                 | appId: the appId of the application, signature: the current time and the URL visited using the access key after the value of the signature, the specific implementation can be found in [Signature.signature](https: //github.com/apolloconfig/apollo/blob/aa184a2e11d6e7e3f519d860d69f3cf30ccfcf9c/apollo-core/src/main/java/com/ctrip/framework/apollo/core/signature/Signature.java#L22) |
+| Authorization | Apollo ${appId}:${signature}                                 | appId: the appId of the application, signature: the current time and the URL visited using the access key after the value of the signature, the specific implementation can be found in [Signature.signature](https://github.com/apolloconfig/apollo/blob/aa184a2e11d6e7e3f519d860d69f3cf30ccfcf9c/apollo-core/src/main/java/com/ctrip/framework/apollo/core/signature/Signature.java#L22) |
 | Timestamp     | Number of milliseconds elapsed from `1970-1-1 00:00:00 UTC+0` to now | See [System.currentTimeMillis](https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#currentTimeMillis()) |
 
 ## 1.6 Error Code Description

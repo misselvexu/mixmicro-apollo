@@ -149,8 +149,8 @@ The access steps for public components are almost identical to those for normal 
 
 So, first perform the following steps in the common application access document, and then follow the steps later in this section.
 
-1. [Create Project](#_11-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE)
-2. [Project administrator privileges](#_121-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90)
+1. [Create Project](#_11-Creating-a-project)
+2. [Project administrator privileges](#_121-Project-administrator-privileges)
 
 ### 2.2.1 Creating Namespace
 

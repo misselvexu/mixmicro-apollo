@@ -34,7 +34,7 @@ After logging in, open `Administrator Tools - User Management` and enter the use
 
 Starting from version 1.2.0, Apollo supports ldap protocol login, which can be configured as follows.
 
-> If you use helm chart deployment method, it is recommended to implement it by configuration method without modifying the image, you can refer to [Enable LDAP support](en/deployment/distributed-deployment-guide#_241449-Enable LDAP support)
+> If you use helm chart deployment method, it is recommended to implement it by configuration method without modifying the image, you can refer to [Enable LDAP support](en/deployment/distributed-deployment-guide#_241449-Enable-LDAP-support)
 
 ### 1. OpenLDAP access method
 
@@ -240,7 +240,7 @@ Before configuration, you need to prepare:
 * OpenID Connect provider configuration endpoint (RFC 8414-compliant issuer-uri), which needs to be **https**, e.g. https://host:port/auth/realms/apollo/.well-known/openid-configuration
 * Create a client in the OpenID Connect service, the signature algorithm of the idToken must be set to **RS256**, get the client-id and the corresponding client-secret
 
-### 1. configure `application-oidc.yml`
+### 1. Configure `application-oidc.yml`
 
 After unpacking `apollo-portal-x.x.x-github.zip`, create `application-oidc.yml` in the `config` directory with the following contents ([sample](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/config/application-oidc-sample.yml)) , the relevant content needs to be adapted to the specific case:
 
@@ -336,7 +336,7 @@ spring:
           issuer-uri: https://host:port/auth/realms/apollo
 ```
 
-### 2. configure `startup.sh`
+### 2. Configure `startup.sh`
 
 Modify ``scripts/startup.sh`` to specify ``spring.profiles.active`` as ``github,oidc``.
 

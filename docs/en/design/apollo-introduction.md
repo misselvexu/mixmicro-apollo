@@ -114,7 +114,7 @@ The picture above is the configuration home page of a project in the Apollo Conf
 * The configuration information of two namespaces (application and FX.apollo) is displayed in the center of the page, which is displayed and edited in table mode by default. Users can also switch to text mode to view and edit as files.
 * Operations such as publishing, rollback, grayscale, authorization, viewing change history and publishing history can be easily performed on the page
 
-## 3.3 Add/modify configuration items
+## 3.3 Add or modify configuration items
 
 Users can easily add/modify configuration items through the configuration center interface. For more usage instructions, please refer to [Application Access Guide](en/usage/apollo-user-guide)
 
@@ -234,7 +234,7 @@ However, custom clusters are also supported, for example, you can create a clust
 
 ### 4.2.2 Adding configuration in Cluster and publishing
 
-After the cluster is successfully added, you can add configuration to the cluster. First, you need to switch to SHAJQ cluster as shown in the figure below, and then the configuration addition process is the same as [3.3 Adding/Modifying Configuration Items](#_33-Adding and Modifying Configuration Items), so we won't go over it here.
+After the cluster is successfully added, you can add configuration to the cluster. First, you need to switch to SHAJQ cluster as shown in the figure below, and then the configuration addition process is the same as [3.3 Adding/Modifying Configuration Items](#_33-Add-or-modify-configuration-items), so we won't go over it here.
 
 ![cluster-created](https://cdn.jsdelivr.net/gh/apolloconfig/apollo@master/doc/images/cluster-created.png)
 
@@ -444,15 +444,15 @@ Considering that there will be tens of thousands of clients initiating long conn
 
 The following table describes the availability of Apollo under different scenarios.
 
-| Scenario                      | Impact                                                       | Degradation                                                  | Reason                                                       |
-| ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| A config service goes offline | No impact                                                    |                                                              | Config service is stateless, client reconnects to other config services |
-| All config services offline   | Client cannot read the latest configuration, Portal has no effect | Client can read the local cache configuration file when restarting |                                                              |
-| No effect                     | The Admin service is stateless, the Portal reconnects to other admin services |                                                              |                                                              |
-| All admin services offline    | No effect on the client, the portal can not update the configuration |                                                              |                                                              |
-| No effect                     |                                                              | Portal domain name bound to multiple servers via slb, pointing to available servers after retries |                                                              |
-| All portals are offline       | No effect on clients, portals can't update configuration     |                                                              |                                                              |
-| No effect                     |                                                              | Multi-data center deployment, data fully synchronized, Meta Server/Portal domain name automatically switched to other surviving data centers via slb |                                                              |
+| Scenario                            | Impact                                                       | Downgrade                                                    | Reason                                                       |
+| ----------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| One of config services goes offline | No effect                                                    |                                                              | The Config service is stateless, and the client reconnects to other config services |
+| All config services are offline     | The client cannot read the latest configuration, and Portal has no effect | When the client restarts, the local cache configuration file can be read |                                                              |
+| One of admin services goes offline  | No effect                                                    |                                                              | The Admin service has no status, and Portal reconnects to other admin services |
+| All admin services are offline      | The client is not affected, and the portal cannot update the configuration |                                                              |                                                              |
+| One of portals goes offline         | No effect                                                    |                                                              | The portal domain name is bound to multiple servers through slb, and points to an available server after retrying |
+| All portals are offline             | The client is not affected, and the portal cannot update the configuration |                                                              |                                                              |
+| One of data center goes offline     | No effect                                                    |                                                              | Multi-data center deployment, data is fully synchronized, Meta Server/Portal domain name is automatically switched to other surviving data centers through slb |
 
 # 5、Contribute to Apollo
 
