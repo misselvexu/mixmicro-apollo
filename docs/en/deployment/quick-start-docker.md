@@ -1,6 +1,6 @@
 If you are familiar with Docker, you can use the Docker way to deploy Apollo quickly, so that you can quickly understand Apollo. if you are not very familiar with Docker, please refer to the [regular way to deploy Quick Start](en/deployment/quick-start).
 
-If you are deploying Apollo in your company, please refer to the [distributed-deployment-guide](en/deployment/distributed- deployment-guide).
+If you are deploying Apollo in your company, please refer to the [distributed-deployment-guide](en/deployment/distributed-deployment-guide).
 
 > Since Docker doesn't support windows very well, it is not recommended to use Docker way to deploy in windows environment, unless you know windows docker very well
 
@@ -44,11 +44,11 @@ apollo-quick-start | Portal started. You can visit http://localhost:8070 now!
 
 ## III. Using Apollo Configuration Center
 
-You can refer to [Quick Start - IV. Using Apollo Configuration Center](en/deployment/quick-start#_IV.-Using-Apollo-Configuration-Center) for the steps related to using it.
+You can refer to [Quick Start - IV. Using Apollo Configuration Center](en/deployment/quick-start?id=iv-using-apollo-configuration-center) for the steps related to using it.
 
 Note that the Demo client needs to be run in a Docker environment with the following command.
 ```bash
 docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
 ```
 
-By default apollo-configservice will only register the internal IP, only clients started by the above command will be able to connect, if you want external clients to be able to access it, please refer to the [network policy](en/deployment/distributed-deployment-guide#_14-Network-Policy).
+By default apollo-configservice will only register the internal IP, only clients started by the above command will be able to connect, if you want external clients to be able to access it, please refer to the [network policy](en/deployment/distributed-deployment-guide?id=_14-network-policy).

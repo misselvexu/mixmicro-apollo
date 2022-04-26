@@ -15,14 +15,14 @@ Apollo local development requires the following components.
 MySQL is required to create Apollo database and import the base data.
 Please refer to the following sections in [distributed-deployment-guide](en/deployment/distributed-deployment-guide) for the specific steps.
 
-1. [Preparation](en/deployment/distributed-deployment-guide#i.-Preparation)
-2. [Create database](en/deployment/distributed-deployment-guide#_21-Creating-the-database)
+1. [Preparation](en/deployment/distributed-deployment-guide?id=i-preparation)
+2. [Create database](en/deployment/distributed-deployment-guide?id=_21-creating-the-database)
 
 ## 1.2 Apollo general design
 
 Please refer to [Apollo Configuration Center Design](en/design/apollo-design) for details.
 
-## 2.2 Local startup
+# II. Local startup
 
 ## 2.1 Apollo Config Service and Apollo Admin Service
 
@@ -139,9 +139,9 @@ After starting, open [http://localhost:8070](http://localhost:8070) to see the A
 
 ### 2.2.5 Demo application access
 
-For better development and debugging, we usually create a demo project for our own use.
+For better development and debugging, we usually create a demo project for our own use. 
 
-You can refer to [General Application Access Guide](en/usage/apollo-user-guide#_i.-General-Application-Access-Guide) to create your own demo project.
+You can refer to [General Application Access Guide](en/usage/apollo-user-guide?id=i-general-application-access-guide) to create your own demo project.
 
 ## 2.3 Java sample client startup
 
@@ -161,7 +161,7 @@ If our own demo project uses an AppId of 100004458, then the file content would 
 
 > For public Namespace configurations, you can get the configuration without the AppId, but then you lose the ability for the application to override the public Namespace configuration.
 
-> More ways to configure AppId can be found in [1.2.1 AppId](en/usage/java-sdk-user-guide#_121-appid)
+> More ways to configure AppId can be found in [1.2.1 AppId](en/usage/java-sdk-user-guide?id=_121-appid)
 
 ### 2.3.2 New run configuration
 
@@ -179,7 +179,7 @@ If our own demo project uses an AppId of 100004458, then the file content would 
 
 > Note: Here the current environment's meta server address is `http://localhost:8080`, which is also the address of `apollo-configservice`.
 
-> For more ways to configure Apollo Meta Server, please refer to [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-apollo-meta-server)
+> For more ways to configure Apollo Meta Server, please refer to [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server)
 
 ### 2.3.5 Overview
 
@@ -252,20 +252,20 @@ Enter the value you configured on the Portal, such as `timeout` in our demo proj
 >You can implement your own logging-related functions.
 >See [https://github.com/ctripcorp/apollo.net/tree/master/Apollo/Logging/Spi](https://github.com/ctripcorp/apollo.net/tree/master/) for details Apollo/Logging/Spi)
 
-## III. Development
+# III. Development
 
-### Module dependency diagram
+## Module dependency diagram
 
 ![Module Dependency Diagram](https://cdn.jsdelivr.net/gh/apolloconfig/apollo@master/doc/images/module-dependency.png)
 
-### 3.1 Portal implementation for user login
+## 3.1 Portal implementation for user login
 
 Please refer to [Portal implementation of user login function](en/development/portal-how-to-implement-user-login-function)
 
-### 3.2 Portal access to mail service
+## 3.2 Portal access to mail service
 
 Please refer to [Portal Enabling Email Service](en/development/portal-how-to-enable-email-service)
 
-### 3.3 Shared session for Portal cluster deployment
+## 3.3 Shared session for Portal cluster deployment
 
 Please refer to [Portal Shared Session](en/development/portal-how-to-enable-session-store)

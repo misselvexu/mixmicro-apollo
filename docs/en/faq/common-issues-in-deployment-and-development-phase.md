@@ -11,7 +11,7 @@ Version 1.1.0 added **System Information** page, you can view the current Meta S
 
 ### 3. Admin server or config server is registered with intranet IP, resulting in portal or client cannot access admin server or config server
 
-Please refer to [network policy](en/deployment/distributed-deployment-guide#_14-network-policy).
+Please refer to [network policy](en/deployment/distributed-deployment-guide?id=_14-network-policy).
 
 ### 4. How to add environment by Portal Console
 
@@ -19,23 +19,23 @@ Please refer to [network policy](en/deployment/distributed-deployment-guide#_14-
 
 Version 1.6.0 adds the ability to customize the environment, which allows you to add an environment without modifying the code
 
-1. add environment for protaldb, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide#_31-Adjusting-ApolloPortalDB-configuration)
-2. add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide#_221124-Configuring-apollo-portal's-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-Apollo-Meta-Server).
+1. add environment for protaldb, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide?id=_31-adjusting-apolloportaldb-configuration)
+2. add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server).
 
->Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide#_212-Creating-ApolloConfigDB), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide#_32-Adjusting-ApolloConfigDB-configuration), [3.1.2 Creating ApolloconfigDB](en/deployment/distributed-deployment-guide#_312-apollo.portal.meta.servers---List-of-Meta-Service-for-each-environment) Adjusting apolloconfigdb configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide#_22112-Configuring-database-connection-information)
+>Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide?id=_212-creating-apolloconfigdb), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-adjusting-apolloconfigdb-configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide?id=_22112-configuring-database-connection-information)
 
-> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide#_2124-Importing-ApolloConfigDB-project-data-from-another-environment) to initialize the new environment
+> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide?id=_2124-importing-apolloconfigdb-project-data-from-another-environment) to initialize the new environment
 
 #### 4.2 1.5.1 and earlier
 ##### 4.2.1 Adding an Apollo pre-defined environment
 
 If the environment to be added is an Apollo pre-defined environment (DEV, FAT, UAT, PRO), two steps are required.
-1. protaldb add environment, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide#_31-Adjusting-ApolloPortalDB-configuration)
-2. add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide#_221124-Configuring-apollo-portal's-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-Apollo-Meta-Server).
+1. protaldb add environment, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide?id=_31-adjusting-apolloportaldb-configuration)
+2. add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server).
 
->Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide#_212-Creating-ApolloConfigDB), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-), [3.1.2 Creating ApolloconfigDB](en/deployment/distributed-deployment-guide#_312-apollo.portal.meta.servers---List-of-Meta-Service-for-each-environment) Adjusting apolloconfigdb configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide#_22112-Configuring-database-connection-information)
+>Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide?id=_212-creating-apolloconfigdb), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-adjusting-apolloconfigdb-configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide?id=_22112-configuring-database-connection-information)
 
-> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide#_2124-Importing-ApolloConfigDB-project-data-from-another-environment) to initialize the new environment
+> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide?id=_2124-importing-apolloconfigdb-project-data-from-another-environment) to initialize the new environment
 
 ##### 4.2.2 Adding a custom environment
 
@@ -87,12 +87,12 @@ public class LegacyMetaServerProvider {
 }
 ```
 
-6. Add `BETA` environment for protaldb, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide#_31-Adjusting-ApolloPortalDB-configuration)
-7. Add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide#_221124-Configuring-apollo-portal's-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-Apollo-Meta-Server).
+6. Add `BETA` environment for protaldb, refer to [3.1 Adjusting ApolloPortalDB configuration](en/deployment/distributed-deployment-guide?id=_31-adjusting-apolloportaldb-configuration)
+7. Add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information). apollo-client also needs to be configured properly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server).
 
->Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide#_212-Creating-ApolloConfigDB), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-), [3.1.2 Creating ApolloconfigDB](en/deployment/distributed-deployment-guide#_312-apollo.portal.meta.servers---List-of-Meta-Service-for-each-environment) Adjusting apolloconfigdb configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide#_22112-Configuring-database-connection-information)
+>Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a set of Config Service, Admin Service and ApolloConfigDB independently, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide?id=_212-creating-apolloconfigdb), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-adjusting-apolloconfigdb-configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide?id=_22112-configuring-database-connection-information)
 
-> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide#_2124-Importing-ApolloConfigDB-project-data-from-another-environment) to initialize the new environment
+> Note 2: If you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide?id=_2124-importing-apolloconfigdb-project-data-from-another-environment) to initialize the new environment
 
 ### 5. How do I delete applications, clusters, Namespace?
 
@@ -166,19 +166,19 @@ public class ConfigServiceApplication {
 
 #### 2. Modify `eureka.service.url` in ApolloConfigDB.ServerConfig table to point to your own Eureka address
 
-For example, if your own Eureka service address is 1.1.1.1:8761 and 2.2.2.2:8761, then set eureka.service.url in ApolloConfigDB.ServerConfig table to
+For example, if your own Eureka service address is 1.1.1.1:8761 and 2.2.2.2:8761, then set `eureka.service.url` in `ApolloConfigDB.ServerConfig` table with:
 
 ```
 http://1.1.1.1:8761/eureka/,http://2.2.2.2:8761/eureka/
 ```
 
-Note that changing the Eureka address only requires changing the `eureka.service.url` in the ApolloConfigDB.ServerConfig table, not the meta server address.
+Note that changing the Eureka address only requires changing the `eureka.service.url` in the `ApolloConfigDB.ServerConfig` table, not the meta server address.
 
 > By default, the meta service and config service are deployed in the same JVM process, so the address of the meta service is the address of the config service, so you don't need to change the meta server address when you modify the Eureka address.
 
 ### 9. Using `ConditionalOnProperty` in Spring Boot does not read the configuration
 
-The `@ConditionalOnProperty` feature is supported since version 0.10.0, see [Spring Boot integration method](en/usage/java-sdk-user-guide?id=_3213-spring-boot integration method (recommended))
+The `@ConditionalOnProperty` feature is supported since version 0.10.0, see [Spring Boot integration method](en/usage/java-sdk-user-guide?id=_3213-spring-boot-integration-methods-recommended)
 
 ### 10. How to achieve the client in room A reads the config service of room A nearby and the client in room B reads the config service of room B nearby in multiple rooms?
 
@@ -193,8 +193,8 @@ Each service of apollo has `/health` page, which is used by apollo to do health 
 Starting from version 1.1.0, apollo-portal adds support for view permissions, which allows you to configure an environment to allow only project members to view the private Namespace.
 
 The project members here are
-1. the project's administrator
-2. have the permission to modify or publish the private Namespace in that environment
+1. The project's administrator
+2. Have the permission to modify or publish the private Namespace in that environment
 
 The configuration is very simple, after logging in with the super administrator account, go to `Administrator Tools - System Parameters` page to add or modify `configView.memberOnly.envs` configuration items.
 

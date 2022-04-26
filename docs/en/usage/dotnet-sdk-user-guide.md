@@ -82,7 +82,7 @@ The local cache path is located in `C:\opt\data\{appId}\config-cache`, so please
 
 ### 1.2.5 Optional settings
 
-**Cluster** (Cluster)
+**Cluster**
 
 Apollo supports configuration by cluster, meaning that for an appId and an environment, there can be different configurations for different clusters.
 
@@ -124,7 +124,7 @@ Download the project locally, switch to the `Release` configuration, compile the
 
 Just reference `Framework.Apollo.Client.dll` in your application.
 
-.Net Core, you can refer to [dotnet-core](https://github.com/ctripcorp/apollo.net/tree/dotnet-core) and [nuget repository](https://www.nuget. org/packages?q=Com.Ctrip.Framework.Apollo)
+.Net Core, you can refer to [dotnet-core](https://github.com/ctripcorp/apollo.net/tree/dotnet-core) and [nuget repository](https://www.nuget.org/packages?q=Com.Ctrip.Framework.Apollo)
 
 # III. Client-side usage
 
@@ -137,7 +137,7 @@ string someDefaultValue = "someDefaultValueForTheKey";
 string value = config.GetProperty(someKey, someDefaultValue);
 ```
 
-GetProperty **can get the real-time latest configuration value corresponding to someKey by the above **config.
+With the above **config.getProperty** you can get the real-time latest configuration value corresponding to someKey.
 
 In addition, the configuration values are fetched from memory, so there is no need for the application to do its own caching.
 
@@ -173,11 +173,11 @@ string value = config.GetProperty(someKey, someDefaultValue);
 
 ## 3.4 Demo
 
-There is a sample client project in apollo.net project: `ApolloDemo`, you can refer to [2.4 .Net sample client startup](en/development/apollo-development-guide) for more information. development/apollo-development-guide?id=_24-net-sample-client-start).
+There is a sample client project in apollo.net project: `ApolloDemo`, you can refer to [2.4 .Net sample client startup](en/development/apollo-development-guide?id=_24-net-sample-client-startup) for more information. 
 
 >Net client open source version will output logs directly to the Console by default, you can implement your own logging-related features.
 >
->See [https://github.com/ctripcorp/apollo.net/tree/master/Apollo/Logging/Spi](https://github.com/ctripcorp/apollo.net/tree/master/) for details Apollo/Logging/Spi)
+>See [https://github.com/ctripcorp/apollo.net/tree/master/Apollo/Logging/Spi](https://github.com/apolloconfig/apollo.net/tree/dotnet-old/Apollo/Spi) for more details .
 
 # IV. Client design
 
@@ -185,15 +185,14 @@ There is a sample client project in apollo.net project: `ApolloDemo`, you can re
 
 The above diagram briefly describes the principle of Apollo client implementation.
 
-1. The client and the server maintain a long connection, so that the first time to get the configuration updates pushed. (achieved through Http Long Polling) 2.
+1. The client and the server maintain a long connection, so that the first time to get the configuration updates pushed. (achieved through Http Long Polling) .
 2. The client also regularly pulls the latest configuration of the application from the Apollo Configuration Center server.
    * This is a fallback mechanism to prevent the configuration from being updated due to the failure of the push mechanism.
-   * The client will report the local version of the timed pull, so in general, for the timed pull operation, the server will return 304 - Not Modified
+   * The client will report the local version of the timed pull, so in general, for the timed pull operation, the server will return 304 - Not Modified.
    * Timing frequency is pulled every 5 minutes by default, client can also set `Apollo.RefreshInterval` through App.config to override it in milliseconds.
 3. The client will save the latest configuration of the application in memory after getting it from the Apollo Configuration Center server
-4. The client will cache a copy of the configuration obtained from the server on the local file system
-   * 4. The client will cache a copy of the configuration obtained from the server in the local file system. In case of service unavailability or network failure, the configuration can still be restored locally
-5. The application can get the latest configuration from the Apollo client, subscribe to configuration update notifications
+4. The client will cache a copy of the configuration obtained from the server in the local file system. In case of service unavailability or network failure, the configuration can still be restored locally.
+5. The application can get the latest configuration from the Apollo client, subscribe to configuration update notifications.
 
 # V. Local Development Mode
 
@@ -205,7 +204,7 @@ You can enable Apollo local development mode by following the steps below.
 
 ## 5.1 Modify the environment
 
-Modify the C:\opt\settings\server.properties file to set the env to Local: 
+Modify the `C:\opt\settings\server.properties` file to set the env to Local: 
 
 ```properties
 env=Local
@@ -217,7 +216,7 @@ In local development mode, Apollo client will read files from local, so we need 
 
 ### 5.2.1 Local configuration directory
 
-The local configuration directory is located at: `C:\opt\data\{_appId_}\config-cache`.
+The local configuration directory is located at: C:\opt\data\{_appId_}\config-cache.
 
 The appId is the appId of the application, e.g. 100004458.
 

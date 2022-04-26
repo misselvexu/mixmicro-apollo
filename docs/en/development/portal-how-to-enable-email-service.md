@@ -20,7 +20,7 @@ Configure the following parameters in the ApolloPortalDB.ServerConfig table or t
 * **email.template.rollback.module.diff** The diff module for rolling back emails.
 * **email.template.release.module.rules** Grayscale rules module for grayscale release.
 
-We provide [Sample Email Template](#_3-Email-template-sample) for your convenience.
+We provide [Sample Email Template](en/development/portal-how-to-enable-email-service?id=_3-email-template-sample) for your convenience.
 
 ## 2. Implementation-2: Access the company's unified mail service
 
@@ -42,14 +42,14 @@ Similar to SSO, each company also has its own mail service implementation, so we
 * **email.template.rollback.module.diff** The diff module for rolling back emails.
 * **email.template.release.module.rules** Grayscale rules module for grayscale release.
 
-We provide  [Sample Email Template](#_3-Email-template-sample)  for your convenience.
+We provide  [Sample Email Template](en/development/portal-how-to-enable-email-service?id=_3-email-template-sample)  for your convenience.
 
 Note: using different implementations at runtime is achieved through [Profiles](http://docs.spring.io/autorepo/docs/spring-boot/current/reference/html/boot-features-profiles.html), For example, if your own Email implementation is in the `custom` profile, you can specify -Dapollo_profile=github,custom in the packaging script. Among them, `github` is a required profile of Apollo, which is used for database configuration, and `custom` is a profile that you implement yourself. Also note that in [EmailConfiguration](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/configuration/EmailConfiguration.java) to modify the default implementation condition `@Profile({"!custom"})`.
 
 ### 2.2 Related code
 
 1. [ConfigPublishListener](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/listener/ConfigPublishListener.java) to monitor the release event, call emailbuilder to build email content, and then call EmailService to send emails
-2. The [emailbuilder](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/components/emailbuilder) package is the build email realization of content
+2. The [emailbuilder](https://github.com/apolloconfig/apollo/tree/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/component/emailbuilder) package is the build email realization of content
 3. [EmailService](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/EmailService.java) Email sending Serve
 4. [EmailConfiguration](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/configuration/EmailConfiguration.java) Mail service registration class
 

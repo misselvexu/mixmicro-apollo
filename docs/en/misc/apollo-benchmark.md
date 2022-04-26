@@ -34,7 +34,7 @@ Many people are concerned about the performance and reliability of Apollo. The f
 
 `999 line response time`: 2.5ms
 
->Note: config service has config cache enabled, for more information you can refer to [Cache Configuration in Distributed Deployment Guide](en/deployment/distributed-deployment-guide#_323-config-service.cache.enabled---whether-to-enable-configuration-caching)
+>Note: config service has config cache enabled, for more information you can refer to [Cache Configuration in Distributed Deployment Guide](en/deployment/distributed-deployment-guide?id=_323-config-servicecacheenabled-whether-to-enable-configuration-caching)
 
 #### 2.2 Config Server GC Status
 

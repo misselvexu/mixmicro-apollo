@@ -14,17 +14,17 @@ Please refer to [Apollo core concept "Namespace"](en/design/apollo-core-concept-
 Please refer to [Apollo user guide](en/usage/apollo-user-guide)
 
 ## 5. My application needs different configurations for different server rooms, does Apollo support it?
-Apollo is supported. Please refer to `III. Cluster independent configuration instructions` in [Apollo User Guide](en/usage/apollo-user-guide)
+Apollo is supported. Please refer to `III. Cluster independent configuration instructions` in [Apollo User Guide](en/usage/apollo-user-guide?id=iii-cluster-independent-configuration-instructions)
 
 ## 6. I have multiple applications that need to use the same configuration, can Apollo support it?
-Apollo is supported. Please refer to `IV. Multiple AppId using the same configuration` in [Apollo User Guide](en/usage/apollo-user-guide).
+Apollo is supported. Please refer to `IV. Using the same configuration for multiple AppId` in [Apollo User Guide](en/usage/apollo-user-guide?id=iv-using-the-same-configuration-for-multiple-appid).
 
 ## 7. Does Apollo support view permission control or configuration encryption?
 Starting from version 1.1.0, apollo-portal adds support for view permissions, which can support configuring an environment to allow only project members to view the configuration of a private Namespace.
 
-The project members here are
-1. the project's administrator
-2. have the permission to modify or publish the private Namespace in that environment
+The project members here are :
+1. The project's administrator
+2. Have the permission to modify or publish the private Namespace in that environment
 
 The configuration is very simple, after logging in with the super administrator account, go to `Administrator Tools - System Parameters` page to add or modify `configView.memberOnly.envs` configuration items.
 

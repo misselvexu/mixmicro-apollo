@@ -48,8 +48,8 @@ We have prepared a Quick Start installation package, you just need to download i
 
 The installation package is 50M, if you can't access github, you can download it from Baidu.com.
 
-1. download from GitHub
-    * checkout or download the [apollo-build-scripts project](https://github.com/nobodyiam/apollo-build-scripts)
+1. Download from GitHub
+    * Checkout or download the [apollo-build-scripts project](https://github.com/nobodyiam/apollo-build-scripts)
     * **Since the Quick Start project is relatively large, it is placed in a different repository, so please note the project address**
         * https://github.com/nobodyiam/apollo-build-scripts
 2. Download from Baidu.com
@@ -62,8 +62,8 @@ The installation package is 50M, if you can't access github, you can download it
 
 Quick Start is only for local testing, so generally users do not need to download the source code to package it themselves, but just download the already typed package. However, there are some users who want to repackage the package after modifying the code, then you can refer to the following steps.
 
-1. modify the apollo-configservice, apollo-adminservice and apollo-portal pom.xml, comment out spring-boot-maven-plugin and maven-assembly-plugin
-2. execute `mvn clean package -pl apollo-assembly -am -DskipTests=true` in the root directory.
+1. Modify the apollo-configservice, apollo-adminservice and apollo-portal pom.xml, comment out spring-boot-maven-plugin and maven-assembly-plugin
+2. Execute `mvn clean package -pl apollo-assembly -am -DskipTests=true` in the root directory.
 3. Copy the jar package under apollo-assembly/target and rename it to apollo-all-in-one.jar
 
 # II. Installation steps
@@ -174,7 +174,7 @@ It should be noted that Quick Start does not support adding environments, but on
 ### 4.1.1 Viewing the sample configuration
 1. Open http://localhost:8070
 
-> Quick Start integrates with [Spring Security simple authentication](en/development/portal-how-to-implement-user-login-function#_implementation-way-one:-using-spring-security-simple-authentication-provided-by-apollo ), for more information you can refer to [Portal implementing user login function](en/development/portal-how-to-implement-user-login-function)
+> Quick Start integrates with [Spring Security simple authentication](en/development/portal-how-to-implement-user-login-function?id=implementation-1-simple-authentication-using-spring-security-provided-by-apollo), for more information you can refer to [Portal implementing user login function](en/development/portal-how-to-implement-user-login-function)
 
 <img src="https://github.com/nobodyiam/apollo-build-scripts/raw/master/images/apollo-login.png" alt="login" width="640px">
 
@@ -249,8 +249,11 @@ This part can be found in [Java Application Access Guide](en/usage/java-sdk-user
 ### 4.2.2 Run the client application
 Since a new project is used, the client needs to modify the appId information.
 
-Edit ``client/META-INF/app.properties`` and change app.id to your newly created app id.
-``properties
+Edit ``client/META-INF/app.properties`` and change `app.id` to your newly created app id.
+```properties
 app.id=your appId
 ```
+
+```
 Run `./demo.sh client` to start the demo client.
+```

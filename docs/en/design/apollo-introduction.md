@@ -136,7 +136,7 @@ Fill in the release information:
 
 ## 3.5 Client get configuration (Java API sample)
 
-After the configuration is released, it can be obtained on the client side. Taking Java as an example, the sample code for obtaining the configuration is as follows. Apollo client also supports integration with Spring. For more client usage instructions, please refer to [Java Client Usage Guide](en/usage/java-sdk-user-guide) and [.Net Client Usage Guide](en/usage /dotnet-sdk-user-guide).
+After the configuration is released, it can be obtained on the client side. Taking Java as an example, the sample code for obtaining the configuration is as follows. Apollo client also supports integration with Spring. For more client usage instructions, please refer to [Java Client Usage Guide](en/usage/java-sdk-user-guide) and [.Net Client Usage Guide](en/usage/dotnet-sdk-user-guide).
 
 ````java
 Config config = ConfigService.getAppConfig();
@@ -202,7 +202,7 @@ Before introducing advanced features, we need to understand a few core concepts 
 2. **environment (environment)**
    * Configure the corresponding environment, Apollo client needs to know which environment the current application is in at runtime, so that it can go get the application configuration
    * We believe that the environment is independent of the code, the same code deployed in different environments should be able to access the configuration of different environments
-   * So the environment is specified by default by reading the configuration on the machine (the env property in server.properties), but for development convenience, we also support runtime specification by System Property, etc. For more information, see [Java Client User Guide](en/usage/java-sdk-user-guide). 3.
+   * So the environment is specified by default by reading the configuration on the machine (the env property in server.properties), but for development convenience, we also support runtime specification by System Property, etc. For more information, see [Java Client User Guide](en/usage/java-sdk-user-guide). 
 
 3. **cluster (cluster)**
    * Grouping of different instances of an application, for example, typically by data center, dividing the application instances in the Shanghai server room into one cluster, and dividing the application instances in the Beijing server room into another cluster.
@@ -234,7 +234,7 @@ However, custom clusters are also supported, for example, you can create a clust
 
 ### 4.2.2 Adding configuration in Cluster and publishing
 
-After the cluster is successfully added, you can add configuration to the cluster. First, you need to switch to SHAJQ cluster as shown in the figure below, and then the configuration addition process is the same as [3.3 Adding/Modifying Configuration Items](#_33-Add-or-modify-configuration-items), so we won't go over it here.
+After the cluster is successfully added, you can add configuration to the cluster. First, you need to switch to SHAJQ cluster as shown in the figure below, and then the configuration addition process is the same as [3.3 Adding/Modifying Configuration Items](#_33-add-or-modify-configuration-items), so we won't go over it here.
 
 ![cluster-created](https://cdn.jsdelivr.net/gh/apolloconfig/apollo@master/doc/images/cluster-created.png)
 
@@ -406,7 +406,7 @@ Why do we use Eureka as a service registry instead of the traditional zk, etcd? 
 * Seamless integration with Spring Cloud
   * Our project itself uses Spring Cloud and Spring Boot, and Spring Cloud has a very comprehensive set of open source code to integrate with Eureka, so it's very easy to use.
   * In addition, Eureka supports starting in our application's own container, which means that after our application is started, it acts as both an Eureka and a service provider. This greatly improves the availability of the service.
-  * **This is the main reason why we chose Eureka over zk, etc. In order to improve the availability of the configuration center and reduce the complexity of deployment, we need to minimize external dependencies as much as possible.  **
+  * **This is the main reason why we chose Eureka over zk, etc. In order to improve the availability of the configuration center and reduce the complexity of deployment, we need to minimize external dependencies as much as possible.**
 * Open Source
   * The last point is open source. Since the code is open source, it is very easy for us to understand how it is implemented and troubleshoot problems.
 

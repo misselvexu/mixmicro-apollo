@@ -8,7 +8,7 @@
 
 The following is the base model of Apollo.
 
-1. users modify and publish the configuration in the configuration center
+1. Users modify and publish the configuration in the configuration center
 2. The configuration center notifies Apollo clients of configuration updates
 3. Apollo client pulls the latest configuration from the configuration center, updates the local configuration and notifies the application
 
@@ -248,7 +248,7 @@ The previous section briefly described how NotificationControllerV2 learns that 
 
 The implementation is as follows.
 
-1. the client initiates an Http request to the `notifications/v2` interface of the Config Service, which is [NotificationControllerV2](https://github.com/apolloconfig/apollo/blob/master/apollo-configService/src/main/java/com/ctrip/framework/apollo/configservice/controller/NotificationControllerV2.java), see [ RemoteConfigLongPollService](https://github.com/apolloconfig/apollo/blob/master/apollo-client/src/main/java/com/ctrip/framework/apollo/internals/RemoteConfigLongPollService.java)
+1. the client initiates an Http request to the `notifications/v2` interface of the Config Service, which is [NotificationControllerV2](https://github.com/apolloconfig/apollo/blob/master/apollo-configservice/src/main/java/com/ctrip/framework/apollo/configservice/controller/NotificationControllerV2.java), see [ RemoteConfigLongPollService](https://github.com/apolloconfig/apollo/blob/master/apollo-client/src/main/java/com/ctrip/framework/apollo/internals/RemoteConfigLongPollService.java)
 2. NotificationControllerV2 does not return the result immediately, but via [Spring DeferredResult](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/context/request/async/DeferredResult.html) to put the request on hold
 3. if no configuration of interest to the client is published within 60 seconds, then the Http status code 304 is returned to the client
 4. If there is a configuration published that the client cares about, NotificationControllerV2 will call [setResult](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/context/request/async/DeferredResult.html#setResult-T-) method of DeferredResult, passing in the namespace information with configuration changes, while the request is returned immediately. After the client gets the namespace with configuration changes from the returned result, it will immediately request the Config Service to get the latest configuration of the namespace.
@@ -320,7 +320,7 @@ The related code can be found in [PropertySourcesProcessor](https://github.com/a
 <tr>
 <td>All Config Services offline</td>
 <td>Client cannot read the latest configuration, Portal has no effect</td>
-<td>When the client restarts, the local cache configuration file can be read. If it is a newly expanded machine, you can obtain the cached configuration file from other machines. For details, please refer to <a href='/#/en/usage/java-sdk-user-guide?id=_123-local cache path '>Java Client Usage Guide - 1.2.3 Local Cache Path</a>
+<td>When the client restarts, the local cache configuration file can be read. If it is a newly expanded machine, you can obtain the cached configuration file from other machines. For details, please refer to <a href='/#/en/usage/java-sdk-user-guide?id=_123-local-cache-path'>Java Client Usage Guide - 1.2.3 Local Cache Path</a>
 </td>
 <td></td>
 </tr>
@@ -357,11 +357,12 @@ The related code can be found in [PropertySourcesProcessor](https://github.com/a
 <tr>
 <td>Database down</td>
 <td>The client is not affected, Portal cannot update the configuration</td>
-<td>After the Config Service is enabled <a href="/#/en/deployment/distributed-deployment-guide?id=_323-config-servicecacheenabled-whether to enable the configuration cache">configuration cache</a>, read the configuration Fetch is not affected by database downtime</td>
+<td>After the Config Service is enabled <a href="/#/en/deployment/distributed-deployment-guide?id=_323-config-servicecacheenabled-whether-to-enable-configuration-caching">configuration cache</a>, read the configuration Fetch is not affected by database downtime</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+
 
 
 

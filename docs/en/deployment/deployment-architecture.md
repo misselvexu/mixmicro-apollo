@@ -79,7 +79,7 @@ The scenario of standalone deployment is usually for novice learners, or for tes
 
 This is the simplest and most convenient way to deploy standalone
 
-Requires.
+Requires:
 
 * 1 linux server: with JRE
 * 2 databases: 1 `PortalDB` and `ConfigDB`
@@ -260,7 +260,7 @@ flowchart LR
 
 But usually we deploy Config Service and Admin Service on a single Linux server
 
-Required.
+Required:
 
 * 2 linux servers: 1 to deploy Portal, the other to deploy Config Service and Admin Service
 * 2 databases
@@ -360,7 +360,7 @@ A single environment basically can not meet the actual application scenario, for
 
 It is easy to think of the deployment architecture as follows, repeat the single machine, single environment deployment architecture 2 times
 
-Required.
+Required:
 
 * 2 linux servers
 * 4 databases
@@ -426,7 +426,7 @@ flowchart LR
 
 But this solution, there will be 2 Portal interface, can not be 1 interface to manage 2 environments, the use of experience is not very good, Portal can actually be deployed only 1 set, the recommended deployment architecture is as follows
 
-* 3 linux servers.
+* 3 linux servers:
     * Portal Linux Server to deploy Portal alone
     * SIT Linux Server to deploy SIT's Config Service and Admin Service
     * UAT Linux Server deploys the Config Service and Admin Service of UAT
@@ -624,7 +624,7 @@ flowchart LR
 
 When Linux Server 1 is down, the client can only read the config-cache on the local disk. If you need to prevent a single Linux from going down and making the Config Service unavailable, you can try adding another Linux machine.
 
-Need
+Required:
 
 * 3 linux servers: 1 to deploy Portal, and 2 to deploy Config Service and Admin Service respectively
 * 2 databases
@@ -699,7 +699,7 @@ Please refer to [Apollo Performance Test Report](en/misc/apollo-benchmark.md) fo
 
 ## 3.3 High Availability, Dual Environment
 
-As in [2.3 Single machine, dual environment](#_23-Single-machine-dual-environment), if you want to make both SIT and UAT highly available, you only need to add more machines to each environment, as shown below, each environment has 2 Linux Servers, if you have performance requirements, you can use more machines in each environment to deploy Config Service that can be
+As in [2.3 Single machine, dual environment](#_23-single-machine-dual-environment), if you want to make both SIT and UAT highly available, you only need to add more machines to each environment, as shown below, each environment has 2 Linux Servers, if you have performance requirements, you can use more machines in each environment to deploy Config Service that can be
 
 ```mermaid
 flowchart LR
@@ -800,7 +800,7 @@ Portal adds the information of the new environment, pointing to apollo.meta of B
 
 In the actual production environment, many companies isolate their test environment, so the production environment is a single environment, with only one PRO environment
 
-When there is only 1 server room, refer to [3.2 Highly available, single environment](#_32-Highly-available-singleenvironment)
+When there is only 1 server room, refer to [3.2 Highly available, single environment](#_32-highly-available-single-environment)
 
 ## 3.6 Highly available, single environment, dual server rooms
 
@@ -911,7 +911,7 @@ ConfigDB and PortalDB are not put into idc1 or idc2 in the diagram, you need to 
 
 # IV. Deployment diagram
 
-## 4.1 ctrip
+## 4.1 In Ctrip
 
 In ctrip, We deployment strategy is as follows.
 

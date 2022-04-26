@@ -71,7 +71,7 @@ Demo Environment:
 6. [Apollo Open APIs](en/usage/apollo-open-api-platform)
 7. [Apollo Use Cases](https://github.com/ctripcorp/apollo-use-cases)
 8. [Apollo User Practices](en/usage/apollo-user-practices)
-9. [Apollo Security Best Practices](en/usage/apollo-user-guide)
+9. [Apollo Security Best Practices](en/usage/apollo-user-guide?id=_71-security-related)
 
 # Design
 * [Apollo Design](en/design/apollo-design)

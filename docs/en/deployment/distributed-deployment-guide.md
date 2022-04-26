@@ -64,7 +64,7 @@ Apollo currently supports the following environments.
 * PRO
     * Production environment
 
-> If you want to add custom environment names, you can refer to [How to add new environments by Portal Console](en/faq/common-issues-in-deployment-and-development-phase#_4-How-to-add-environment-by-Portal-Console) for the specific steps.
+> If you want to add custom environment names, you can refer to [How to add new environments by Portal Console](en/faq/common-issues-in-deployment-and-development-phase?id=_4-how-to-add-environment-by-portal-console) for the specific steps.
 
 You can refer to [deployment-architecture](en/deployment/deployment-architecture.md)
 
@@ -131,7 +131,7 @@ EUREKA_INSTANCE_PREFER_IP_ADDRESS=false
 
 ### 1.4.4 Specifying apollo-configservice address directly
 
-If Apollo is deployed on the public cloud and the local development environment cannot connect, but you need to do development testing, the client can upgrade to version 0.11.0 and above, and then configure [Skip Apollo Meta Server service discovery](en/usage/java-sdk-user-guide#_1222-Skip-Apollo-Meta-Server-service-discovery)
+If Apollo is deployed on the public cloud and the local development environment cannot connect, but you need to do development testing, the client can upgrade to version 0.11.0 and above, and then configure [Skip Apollo Meta Server service discovery](en/usage/java-sdk-user-guide?id=_1222-skip-apollo-meta-server-service-discovery)
 
 ### 1.4.5 Network Configuration
 
@@ -310,9 +310,9 @@ Also don't forget to notify users to set the correct configuration information f
 
 ### 2.1.3 Adjusting server-side configuration
 
-Apollo's own configuration is placed inside the database, so you need to make some adjustments for the actual situation, please refer to [III. Server-side configuration description](#_III.-Server-side-configuration-instructions) for specific parameters.
+Apollo's own configuration is placed inside the database, so you need to make some adjustments for the actual situation, please refer to [III. Server-side configuration description](en/deployment/distributed-deployment-guide?id=iii-server-side-configuration-instructions) for specific parameters.
 
-Most of the configurations can use the default values first, but [apollo.portal.envs](#_311-apollo.portal.envs---list-of-supportable-environments) and [eureka.service.url](#_321-eureka.service.url---Eureka-Service-Url) please make sure configured correctly before proceeding to the following deployment steps.
+Most of the configurations can use the default values first, but [apollo.portal.envs](en/deployment/distributed-deployment-guide?id=_311-apolloportalenvs-list-of-supportable-environments) and [eureka.service.url](en/deployment/distributed-deployment-guide?id=_321-eurekaserviceurl-eureka-service-url) please make sure configured correctly before proceeding to the following deployment steps.
 
 ## 2.2 Virtual/physical machine deployment
 
@@ -387,7 +387,7 @@ spring.datasource.password = somepwd
 
 Apollo Portal needs to access different meta service (apollo-configservice) addresses in different environments, so we need to provide this information in the configuration. By default, the meta service and config service are deployed in the same JVM process, so the address of the meta service is the address of the config service.
 
-> For version 1.6.0 and above, you can configure the Meta Service address through the configuration item in ApolloPortalDB.ServerConfig, see [apollo.portal.meta.servers - List of Meta Service for each environment](#_312-apollo.portal.meta.servers---List-of-Meta-Service-for-each-environment)
+> For version 1.6.0 and above, you can configure the Meta Service address through the configuration item in ApolloPortalDB.ServerConfig, see [apollo.portal.meta.servers - List of Meta Service for each environment](en/deployment/distributed-deployment-guide?id=_312-apolloportalmetaservers-list-of-meta-service-for-each-environment)
 
 Open the `apollo-env.properties` file in the `config` directory of `apollo-portal-x.x.x-github.zip` using a programmer-specific editor (e.g. vim, notepad++, sublime, etc.).
 
@@ -504,7 +504,7 @@ Note that since ApolloConfigDB is deployed in each environment, the admin-servic
 1. Modify build.sh/build.bat to change the maven build command for config-service and admin-service to
 
 ```shell
-mvn clean package -Pgithub,nacos-discovery -DskipTests -pl apollo-configservice,apollo-adminservice -am -Dapollo_profile=github,nacos- discovery -Dspring_datasource_url=$apollo_config_db_url -Dspring_datasource_username=$apollo_config_db_username -Dspring_datasource_ password=$apollo_config_db_username password=$apollo_config_db_password
+mvn clean package -Pgithub,nacos-discovery -DskipTests -pl apollo-configservice,apollo-adminservice -am -Dapollo_profile=github,nacos-discovery -Dspring_datasource_url=$apollo_config_db_url -Dspring_datasource_username=$apollo_config_db_username -Dspring_datasource_ password=$apollo_config_db_username password=$apollo_config_db_password
 ```
 
 2. Modify the application-github.properties in the config directory of the apollo-config service and apollo-adminservice installation packages, respectively, to configure the nacos server address
@@ -525,7 +525,7 @@ nacos.discovery.context-path=
 1. Modify build.sh/build.bat to change the maven build command for config-service and admin-service to
 
 ```shell
-mvn clean package -Pgithub -DskipTests -pl apollo-configservice,apollo-adminservice -am -Dapollo_profile=github,consul-discovery -Dspring_ datasource_url=$apollo_config_db_url -Dspring_datasource_username=$apollo_config_db_username -Dspring_datasource_password=$apollo_config_db_password
+mvn clean package -Pgithub -DskipTests -pl apollo-configservice,apollo-adminservice -am -Dapollo_profile=github,consul-discovery -Dspring_datasource_url=$apollo_config_db_url -Dspring_datasource_username=$apollo_config_db_username -Dspring_datasource_password=$apollo_config_db_password
 ```
 
 2. Modify the application-github.properties in the config directory of the apollo-configservice and apollo-adminservice installation packages, respectively, to configure the consul server address
@@ -599,7 +599,7 @@ export JAVA_OPTS="-server -Xms6144m -Xmx6144m -Xss256k -XX:MetaspaceSize=128m -X
 
 > Note 2: To adjust the log output path of the service, you can modify `LOG_DIR` in scripts/startup.sh and apollo-configservice.conf.
 
-> Note 3: To adjust the listening port of the service, you can modify the `SERVER_PORT` in scripts/startup.sh. In addition, apollo-configservice also assumes the responsibility of meta server. If you want to modify the port, pay attention to the `eureka.service.url` configuration item in the ApolloConfigDB.ServerConfig table and the meta server information used in apollo-portal and apollo-client. For details, see: [2.2.1.1.2.4 Configuring the meta service information of apollo-portal](#_221124-Configuring-apollo-portal's-meta-service-information) and [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-Apollo-Meta-Server).
+> Note 3: To adjust the listening port of the service, you can modify the `SERVER_PORT` in scripts/startup.sh. In addition, apollo-configservice also assumes the responsibility of meta server. If you want to modify the port, pay attention to the `eureka.service.url` configuration item in the ApolloConfigDB.ServerConfig table and the meta server information used in apollo-portal and apollo-client. For details, see: [2.2.1.1.2.4 Configuring the meta service information of apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information) and [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server).
 
 > Note 4: If the eureka.service.url of ApolloConfigDB.ServerConfig is only configured with the currently starting machine, the eureka registration failure information will be output in the log during the process of starting apollo-configservice, such as `com.sun.jersey .api.client.ClientHandlerException: java.net.ConnectException: Connection refused`. It should be noted that this is the expected situation, because apollo-configservice needs to register the service with the Meta Server (itself), but because it has not yet woken up during the startup process, it will report this error. The retry action will be performed later, so the registration will be normal after the service is up.
 
@@ -719,8 +719,8 @@ Parameter description:
 * `SPRING_DATASOURCE_URL`: Address of the corresponding environment ApolloPortalDB
 * `SPRING_DATASOURCE_USERNAME`: The username of the corresponding environment ApolloPortalDB
 * `SPRING_DATASOURCE_PASSWORD`: The password of the corresponding environment ApolloPortalDB
-* `APOLLO_PORTAL_ENVS` (optional): corresponds to the [apollo.portal.envs](#_311-apollo.portal.envs---list-of-supportable-environments) configuration item in ApolloPortalDB, which can be configured by this environment parameter if it is not configured in the database
-* `DEV_META/PRO_META`(optional): Configure the Meta Service address of the corresponding environment, named by `${ENV}_META`, it should be noted that if you configure  [apollo.portal.meta.servers](#_312-apollo.portal.meta.servers---List-of-Meta-Service-for-each-environment)  configuration, then the configuration in apollo.portal.meta.servers prevails.
+* `APOLLO_PORTAL_ENVS` (optional): corresponds to the [apollo.portal.envs](en/deployment/distributed-deployment-guide?id=_311-apolloportalenvs-list-of-supportable-environments) configuration item in ApolloPortalDB, which can be configured by this environment parameter if it is not configured in the database.
+* `DEV_META/PRO_META`(optional): Configure the Meta Service address of the corresponding environment, named by `${ENV}_META`, it should be noted that if you configure  [apollo.portal.meta.servers](en/deployment/distributed-deployment-guide?id=_312-apolloportalmetaservers-list-of-meta-service-for-each-environment)  configuration, then the configuration in apollo.portal.meta.servers prevails.
 
 #### 2.3.1.4 Building a Docker image from source
 
@@ -737,7 +737,7 @@ Apollo project already comes with Docker file, you can refer to [2.2.1 Get insta
 2. [apollo-adminservice](https://github.com/apolloconfig/apollo/blob/master/apollo-adminservice/src/main/docker/Dockerfile)
 3. [apollo-portal](https://github.com/apolloconfig/apollo/blob/master/apollo-portal/src/main/docker/Dockerfile)
 
-See also the [docker-apollo](https://github.com/kulovecc/docker-apollo) project by Apollo user [@kulovecc](https://github.com/kulovecc) and [@idoop](https: //github.com/idoop) for the [docker-apollo](https://github.com/idoop/docker-apollo) project.
+See also the [docker-apollo](https://github.com/kulovecc/docker-apollo) project by Apollo user [@kulovecc](https://github.com/kulovecc) and [@idoop](https://github.com/idoop) for the [docker-apollo](https://github.com/idoop/docker-apollo) project.
 
 ## 2.4 Kubernetes Deployment
 
@@ -1202,11 +1202,11 @@ DEV,FAT,UAT,PRO
 
 After the modification needs to reboot to take effect.
 
->Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a separate set of Config Service, Admin Service and ApolloConfigDB, please refer to: [2.1.2 Creating ApolloConfigDB](#_212-Creating-ApolloConfigDB), [3.2 Adjusting ApolloConfigDB configuration](#_32-Adjusting-ApolloConfigDB-configuration), [2.2.1.1.2 Configuring database connection information](#_22112-Configuring-database-connection-information), and if you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](#_2124-Importing-ApolloConfigDB-project-data-from-another-environment) to do the initialization of the new environment.
+>Note 1: A set of Portal can manage multiple environments, but each environment needs to deploy a separate set of Config Service, Admin Service and ApolloConfigDB, please refer to: [2.1.2 Creating ApolloConfigDB](en/deployment/distributed-deployment-guide?id=_212-creating-apolloconfigdb), [3.2 Adjusting ApolloConfigDB configuration](en/deployment/distributed-deployment-guide?id=_32-adjusting-apolloconfigdb-configuration), [2.2.1.1.2 Configuring database connection information](en/deployment/distributed-deployment-guide?id=_22112-configuring-database-connection-information), and if you are adding an environment to Apollo Configuration Center that has been running for a while, don't forget to refer to [2.1.2.4 Importing ApolloConfigDB project data from another environment](en/deployment/distributed-deployment-guide?id=_2124-importing-apolloconfigdb-project-data-from-another-environment) to do the initialization of the new environment.
 
->Note 2: Adding the environment to the database only does not work, you also need to add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring the meta service information of apollo-portal](#_221124-Configuring-apollo-portal's-meta-service-information). portal's meta-service information). apollo-client also needs to be configured accordingly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide#_122-Apollo-Meta-Server).
+>Note 2: Adding the environment to the database only does not work, you also need to add the meta server address corresponding to the new environment for apollo-portal, refer to: [2.2.1.1.2.4 Configuring the meta service information of apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information). portal's meta-service information). apollo-client also needs to be configured accordingly when used in a new environment, refer to: [1.2.2 Apollo Meta Server](en/usage/java-sdk-user-guide?id=_122-apollo-meta-server).
 
->Note 3: If you wish to add a custom environment name, you can refer to [Portal How to add environment](en/faq/common-issues-in-deployment-and-development-phase#_4-How-to-add-environment-by-Portal-Console) .
+>Note 3: If you wish to add a custom environment name, you can refer to [Portal How to add environment](en/faq/common-issues-in-deployment-and-development-phase?id=_4-how-to-add-environment-by-portal-console) .
 
 >Note 4: Version 1.1.0 added the system information page (`Administrator Tools` -> `System Information`), you can check whether the configuration is correct through this page
 
@@ -1229,7 +1229,7 @@ Sample example is as follows.
 
 A reboot is required to take effect after the modification.
 
-> This configuration has a higher priority than the Meta Service address set in other ways. For more information, please refer to [2.2.1.1.2.4 Configuring meta service information for apollo-portal](#_221124-Configuring-apollo-portal's-meta-service-information).
+> This configuration has a higher priority than the Meta Service address set in other ways. For more information, please refer to [2.2.1.1.2.4 Configuring meta service information for apollo-portal](en/deployment/distributed-deployment-guide?id=_221124-configuring-apollo-portal39s-meta-service-information).
 
 ### 3.1.3 Organizations - Department list
 
@@ -1297,7 +1297,7 @@ If set to false, this feature is disabled
 
 > for version 1.7.1 and above
 
-If the corresponding environment apollo-adminservice has [access control enabled](#_326-admin-services.access.control.enabled-Configure-whether-apollo-adminservice-has-access-control-enabled), then you need to configure apollo-portal access here access token required for this environment apollo-adminservice, otherwise access will fail
+If the corresponding environment apollo-adminservice has [access control enabled](en/deployment/distributed-deployment-guide?id=_326-admin-servicesaccesscontrolenabled-configure-whether-apollo-adminservice-has-access-control-enabled), then you need to configure apollo-portal access here access token required for this environment apollo-adminservice, otherwise access will fail .
 
 The format is json, as follows.
 
@@ -1341,7 +1341,7 @@ http://5.5.5.5:8080/eureka/,http://6.6.6.6:8080/eureka/
 
 >Note 1: Here you need to fill in the address of all the eureka services in this environment, because eureka needs to copy each other's registration information
 
->Note 2: If you want to register Config Service and Admin Service to the company's unified Eureka, you can refer to [Deployment & Development FAQ - Registering Config Service and Admin Service to a separate Eureka Server](en/faq/common-issues-in-deployment-and-development-phase#_8-Register-Config-Service-and-Admin-Service-to-a-separate-Eureka-Server) section
+>Note 2: If you want to register Config Service and Admin Service to the company's unified Eureka, you can refer to [Deployment & Development FAQ - Registering Config Service and Admin Service to a separate Eureka Server](en/faq/common-issues-in-deployment-and-development-phase?id=_8-register-config-service-and-admin-service-to-a-separate-eureka-server) section
 
 >Note 3: In multi-room deployments, you often want the config service and admin service to register only with the eureka in the same room. To achieve this, you need to use the cluster field in the `ServerConfig` table, and the config service and admin service will read the `/opt/settings/server.properties` (Mac/Linux) or `C:\opt\settings\server.properties` (Windows), and if the idc has a corresponding eureka.service.url configuration, then will only register with eureka for that server room. For example, if the config service and admin service are deployed to two IDCs, `SHAOY` and `SHAJQ`, then in order to register the services in these two server rooms only with that server room, you can add two new records in the `ServerConfig` table and fill in the `SHAOY` and `SHAJQ` server room eureka addresses respectively. If there are config service and admin service that are not deployed in `SHAOY` and `SHAJQ`, this default configuration will be used.
 
@@ -1387,7 +1387,7 @@ The above configuration specifies a maximum length limit of 200 for the value of
 
 > For versions 1.7.1 and above
 
-Default is false, if configured to true, then apollo-portal needs to be [properly configured](#_3112-admin-services.access.tokens---set-the-access-token-required-by-apollo-portal-to-access-the-apollo-adminservice-for-each-environment) to access the access token of that environment, otherwise access will be denied
+Default is false, if configured to true, then apollo-portal needs to be [properly configured](en/deployment/distributed-deployment-guide?id=_3112-admin-servicesaccesstokens-set-the-access-token-required-by-apollo-portal-to-access-the-apollo-adminservice-for-each-environment) to access the access token of that environment, otherwise access will be denied
 
 ### 3.2.7 `admin-services.access.tokens` - Configure the list of access tokens allowed to access apollo-adminservice
 

@@ -34,7 +34,7 @@ After logging in, open `Administrator Tools - User Management` and enter the use
 
 Starting from version 1.2.0, Apollo supports ldap protocol login, which can be configured as follows.
 
-> If you use helm chart deployment method, it is recommended to implement it by configuration method without modifying the image, you can refer to [Enable LDAP support](en/deployment/distributed-deployment-guide#_241449-Enable-LDAP-support)
+> If you use helm chart deployment method, it is recommended to implement it by configuration method without modifying the image, you can refer to [Enable LDAP support](en/deployment/distributed-deployment-guide?id=_241449-enable-ldap-support)
 
 ### 1. OpenLDAP access method
 

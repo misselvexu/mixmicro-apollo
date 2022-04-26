@@ -90,14 +90,14 @@ The following ways to configure apollo meta server information are supported sin
    * You can specify `apollo.meta=http://config-service-url` in `classpath:/META-INF/app.properties`
 6. Via Java system property `${env}_meta`
    * If the current [env](#_1241-environment) is `dev`, then the user can configure `-Ddev_meta=http://config-service-url`
-   * Using this configuration method, then the Environment must be configured correctly, see [1.2.4.1 Environment](#_1241-environment) for details
+   * Using this configuration method, then the Environment must be configured correctly, see [1.2.4.1 Environment](en/usage/java-sdk-user-guide?id=_1241-environment) for details
 7. Via the OS System Environment `${ENV}_META` (supported since version 1.2.0)
    * If the current [env](#_1241-environment) is `dev`, then the user can configure the OS System Environment `DEV_META=http://config-service-url`
    * Note that the key is all-caps
-   * Using this configuration method, then the Environment must be configured correctly, see [1.2.4.1 Environment](#_1241-environment) for details
+   * Using this configuration method, then the Environment must be configured correctly, see [1.2.4.1 Environment](en/usage/java-sdk-user-guide?id=_1241-environment) for details
 8. Via the `apollo-env.properties` file
    * The user can also create an `apollo-env.properties` and put it under the classpath of the application or under the config directory of the spring boot application
-   * If you use this configuration, then you must configure the Environment correctly, see [1.2.4.1 Environment](#_1241-environment)
+   * If you use this configuration, then you must configure the Environment correctly, see [1.2.4.1 Environment](en/usage/java-sdk-user-guide?id=_1241-environment)
    * The contents of the file look like this.
 
 ```properties
@@ -117,7 +117,7 @@ Since we use the typical [Java Service Loader pattern](https://docs.oracle.com/j
 
 One thing to note is that apollo will iterate through all MetaServerProviders in order at runtime until a MetaServerProvider provides a non-empty Meta Server address, so users need to pay extra attention to the Order of the custom MetaServerProvider. The rule is that smaller Order has higher priority, so MetaServerProvider with Order=0 will be ranked ahead of MetaServerProvider with Order=1.
 
-**If your company has many applications that need to access Apollo, it is recommended to package a jar package and then provide a custom Apollo Meta Server positioning logic so that the applications that access Apollo can be used with zero configuration. For example, write your own `xx-company-apollo-client`, the jar package depends on `apollo-client`, define a custom MetaServerProvider implementation in the jar package by spi, and then the application directly depends on `xx-company-apollo- client`. **
+**If your company has many applications that need to access Apollo, it is recommended to package a jar package and then provide a custom Apollo Meta Server positioning logic so that the applications that access Apollo can be used with zero configuration. For example, write your own `xx-company-apollo-client`, the jar package depends on `apollo-client`, define a custom MetaServerProvider implementation in the jar package by spi, and then the application directly depends on `xx-company-apollo-client`.**
 
 The implementation of MetaServerProvider can be found in [LegacyMetaServerProvider](https://github.com/apolloconfig/apollo/blob/master/apollo-core/src/main/java/com/ctrip/framework/apollo/core/internals/LegacyMetaServerProvider.java) and [DefaultMetaServerProvider](https://github.com/apolloconfig/apollo/blob/master/apollo-client/src/main/java/com/ctrip/framework/apollo/internals/DefaultMetaServerProvider.java).
 
@@ -143,7 +143,7 @@ For the above scenarios, you can skip Meta Server service discovery by directly 
    * Can be specified by System Environment `APOLLO_CONFIG_SERVICE`(1.9.0+) or `APOLLO_CONFIGSERVICE`(before 1.9.0) of the operating system
    * Note that the key is all-caps and separated by `_`.
 3. Via `server.properties` configuration file
-   * You can specify `apollo.config-service=http://config-service-url:port`(1.9.0+) or `apollo.configService=http://config-` in the `server.properties` configuration file service-url:port` (before 1.9.0)
+   * You can specify `apollo.config-service=http://config-service-url:port`(1.9.0+) or `apollo.configService=http://config-service-url:port` in the `server.properties` configuration file (before 1.9.0)
     * For Mac/Linux, the default file location is `/opt/settings/server.properties`
    * For Windows, the default file location is `C:\opt\settings\server.properties`
 
@@ -179,8 +179,8 @@ The following custom cache paths are supported since version 1.0.0, in descendin
 1. Via the Java System Property `apollo.cache-dir` (1.9.0+) or `apollo.cacheDir` (before 1.9.0)
    * Can be specified by Java's System Property `apollo.cache-dir`(1.9.0+) or `apollo.cacheDir`(before 1.9.0)
    * In the Java program startup script, you can specify `-Dapollo.cache-dir=/opt/data/some-cache-dir`(1.9.0+) or `apollo.cacheDir=/opt/data/some-cache-dir`(before 1.9.0)
-     * If you are running a jar file, note that the format is `java -Dapollo.cache-dir=/opt/data/some-cache-dir -jar xxx.jar` (1.9.0+) or `java -Dapollo.cacheDir=/opt/data/some- cache-dir -jar xxx.jar`(before 1.9.0)
-   * Can also be specified programmatically, e.g. `System.setProperty("apollo.cache-dir", "/opt/data/some-cache-dir");`(1.9.0+) or `System.setProperty("apollo.cacheDir", "/ opt/data/some-cache-dir");`(before 1.9.0)
+     * If you are running a jar file, note that the format is `java -Dapollo.cache-dir=/opt/data/some-cache-dir -jar xxx.jar` (1.9.0+) or `java -Dapollo.cacheDir=/opt/data/some-cache-dir -jar xxx.jar`(before 1.9.0)
+   * Can also be specified programmatically, e.g. `System.setProperty("apollo.cache-dir", "/opt/data/some-cache-dir");`(1.9.0+) or `System.setProperty("apollo.cacheDir", "/opt/data/some-cache-dir");`(before 1.9.0)
 2. Via the Spring Boot configuration file
    * You can specify `apollo.cache-dir=/opt/data/some-cache-dir` (1.9.0+) or `apollo. cacheDir=/opt/data/some-cache-dir`(before 1.9.0)
 3. Via OS System Environment `APOLLO_CACHE_DIR` (1.9.0+) or `APOLLO_CACHEDIR` (before 1.9.0)
@@ -305,8 +305,8 @@ The configuration methods are as follows, in descending order of priority
 
 1. Via Java System Property `apollo.access-key.secret` (1.9.0+) or `apollo.accessskey.secret` (before 1.9.0)
    * Can be specified via Java's System Property `apollo.access-key.secret` (1.9.0+) or `apollo.accessskey.secret` (before 1.9.0)
-   * In the Java application startup script, you can specify `-Dapollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719` (1.9.0+) or `-Dapollo.accesskey.secret= 1cf998c4e2ad4704b45a98a509d15719`(before 1.9.0)
-     * If running a jar file, note that the format is `java -Dapollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719 -jar xxx.jar` (1.9.0+) or `java -Dapollo.accesskey. secret=1cf998c4e2ad4704b45a98a509d15719 -jar xxx.jar`(before 1.9.0)
+   * In the Java application startup script, you can specify `-Dapollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719` (1.9.0+) or `-Dapollo.accesskey.secret=1cf998c4e2ad4704b45a98a509d15719`(before 1.9.0)
+     * If running a jar file, note that the format is `java -Dapollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719 -jar xxx.jar` (1.9.0+) or `java -Dapollo.accesskey.secret=1cf998c4e2ad4704b45a98a509d15719 -jar xxx.jar`(before 1.9.0)
    * Can also be specified programmatically, such as `System.setProperty("apollo.access-key.secret", "1cf998c4e2ad4704b45a98a509d15719");`(1.9.0+) or `System.setProperty("apollo.accesskey.secret", "1cf998c4e2ad4704b45a98a509d15719");` (before 1.9.0)
 2. Via the Spring Boot configuration file
    * You can specify `apollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719` in `application.properties` or `bootstrap.properties` of Spring Boot (1.9.0 +) or `apollo.accesskey.secret=1cf998c4e2ad4704b45a98a509d15719` (before 1.9.0)
@@ -314,7 +314,7 @@ The configuration methods are as follows, in descending order of priority
    * Can also be specified through the OS System Environment `APOLLO_ACCESS_KEY_SECRET`(1.9.0+) or `APOLLO_ACCESSKEY_SECRET`(before 1.9.0)
    * Note that the key is all-caps
 4. Via `app.properties` configuration file
-   * You can specify `apollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719`(1.9.0+) or `apollo.accessskey. secret=1cf998c4e2ad4704b45a98a509d15719`(before 1.9.0)
+   * You can specify `apollo.access-key.secret=1cf998c4e2ad4704b45a98a509d15719`(1.9.0+) or `apollo.accessskey.secret=1cf998c4e2ad4704b45a98a509d15719`(before 1.9.0)
 
 #### 1.2.4.5 Custom server.properties path
 
@@ -386,7 +386,7 @@ apollo.label=YOUR-APOLLO-LABEL
 
 4. `app.properties`
 
-Make sure that the classpath:/META-INF/app.properties file exists and that its contents are shaped like.
+Make sure that the `classpath:/META-INF/app.properties` file exists and that its contents are shaped like.
 
 >apollo.label=YOUR-APOLLO-LABEL
 
@@ -421,9 +421,9 @@ Apollo supports API approach and Spring integration approach, how to choose whic
     * Replace the placeholder in the configuration file, e.g.: `spring.datasource.url: ${someKeyFromApollo:someDefaultValue}`
     * Directly hosting spring's configuration, such as directly configuring `spring.datasource.url=jdbc:mysql://localhost:3306/somedb?characterEncoding=utf8` in apollo
   * Spring boot's [@ConfigurationProperties](http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html) method
-  * Versions from v0.10.0 onwards support automatic update of placeholder at runtime, see [PR #972](https://github.com/apolloconfig/apollo/pull/972) for details. (Versions prior to v0.10.0 do not re-inject after configuration changes and require a restart to update. If you need real-time updates of configuration values, you can refer to the subsequent description in [3.2.2 Use of Spring Placeholder](#322-Use-of-Spring-Placeholder))
+  * Versions from v0.10.0 onwards support automatic update of placeholder at runtime, see [PR #972](https://github.com/apolloconfig/apollo/pull/972) for details. (Versions prior to v0.10.0 do not re-inject after configuration changes and require a restart to update. If you need real-time updates of configuration values, you can refer to the subsequent description in [3.2.2 Use of Spring Placeholder](en/usage/java-sdk-user-guide?id=_322-use-of-spring-placeholder)
 
-* The Spring approach can also be used in combination with the API approach, such as injecting Apollo's Config object, you can get the configuration as usual through the API approach: ``Java
+* The Spring approach can also be used in combination with the API approach, such as injecting Apollo's Config object, you can get the configuration as usual through the API approach: 
 
   ```java
   @ApolloConfig
@@ -510,11 +510,11 @@ Apollo also supports integration with Spring (Spring 3.1.1+), and only requires 
 
 Apollo currently supports both the more traditional `XML-based` configuration and the currently more popular `Java-based (recommended)` configuration.
 
-In case of Spring Boot environments, it is recommended to refer to [3.2.1.3 Spring Boot integration methods (recommended)](#_3213-Spring-Boot-integration-methods-(recommended)) for configuration.
+In case of Spring Boot environments, it is recommended to refer to [3.2.1.3 Spring Boot integration methods (recommended)](en/usage/java-sdk-user-guide?id=_3213-spring-boot-integration-methods-recommended) for configuration.
 
-Note that if you have previously used `org.springframework.beans.factory.config.PropertyPlaceholderConfigurer`, please replace it with `org.springframework.context.support. PropertySourcesPlaceholderConfigurer`. It is not recommended to use PropertyPlaceholderConfigurer after Spring 3.1, use PropertySourcesPlaceholderConfigurer instead.
+Note that if you have previously used `org.springframework.beans.factory.config.PropertyPlaceholderConfigurer`, please replace it with `org.springframework.context.support.PropertySourcesPlaceholderConfigurer`. It is not recommended to use PropertyPlaceholderConfigurer after Spring 3.1, use PropertySourcesPlaceholderConfigurer instead.
 
-If you have used `<context:property-placeholder>` before, please note that the `spring-context.xsd` version introduced in the xml needs to be 3.1 or higher (usually it will be upgraded automatically as long as no version is specified), and it is recommended to introduce it without the version number, e.g.: `http://www. springframework.org/schema/context/spring-context.xsd`
+If you have used `<context:property-placeholder>` before, please note that the `spring-context.xsd` version introduced in the xml needs to be 3.1 or higher (usually it will be upgraded automatically as long as no version is specified), and it is recommended to introduce it without the version number, e.g.: `http://www.springframework.org/schema/context/spring-context.xsd`
 
 > Note 1: namespace in yaml/yml format supports integration with Spring since version 1.3.0, when injecting you need to fill in the full name with a suffix, such as application.yml
 
@@ -748,7 +748,7 @@ Apollo's Config Data Loader also provides a webClient-based http client to repla
 
 WebClient can be based on multiple implementations (reactor netty httpclient, jetty reactive httpclient, apache httpclient5), the dependencies to be added are as follows
 
-###### reactor netty httpclient
+###### Reactor netty httpclient
 
 ````xml
 <dependencies>
@@ -770,7 +770,7 @@ WebClient can be based on multiple implementations (reactor netty httpclient, je
 </dependencies>
 ````
 
-###### jetty reactive httpclient
+###### Jetty reactive httpclient
 
 ````xml
 <dependencies>
@@ -792,7 +792,7 @@ WebClient can be based on multiple implementations (reactor netty httpclient, je
 </dependencies>
 ````
 
-###### apache httpclient5
+###### Apache httpclient5
 
 Spring boot does not specify the version of apache httpclient5, so you need to manually specify the version here
 
@@ -1100,7 +1100,7 @@ eureka.instance.preferIpAddress = true
 
 ## 3.3 Demo
 
-There is a sample client project in the project: `apollo-demo`, for details, please refer to [2.3 Java Sample Client Start](en/development/apollo-development-guide) in [Apollo Development Guide](en/development/apollo-development-guide) section.
+There is a sample client project in the project: `apollo-demo`, for details, please refer to [2.3 Java Sample Client Start](en/development/apollo-development-guide?id=_23-java-sample-client-startup) in [Apollo Development Guide](en/development/apollo-development-guide) section.
 
 For more use case demos, please refer to [Apollo usage scenarios and sample code](https://github.com/ctripcorp/apollo-use-cases).
 
@@ -1110,15 +1110,14 @@ For more use case demos, please refer to [Apollo usage scenarios and sample code
 
 The above diagram briefly describes the principle of Apollo client implementation.
 
-1. The client and the server maintain a long connection so that it can get the first push of configuration updates. (achieved through Http Long Polling) 2.
+1. The client and the server maintain a long connection so that it can get the first push of configuration updates. (achieved through Http Long Polling) .
 2. The client also regularly pulls the latest configuration of the application from the Apollo Configuration Center server.
    * This is a fallback mechanism to prevent the configuration from being updated due to the failure of the push mechanism.
-   * The client will report the local version of the timed pull, so in general, for the timed pull operation, the server will return 304 - Not Modified
+   * The client will report the local version of the timed pull, so in general, for the timed pull operation, the server will return 304 - Not Modified.
    * Timing frequency defaults to pulling every 5 minutes. Clients can also override this by specifying System Property: `apollo.refreshInterval` at runtime, in minutes.
-3. After the client gets the latest configuration of the application from the Apollo Configuration Center server, it will be saved in memory
-4. The client will cache a copy of the configuration fetched from the server on the local file system
-   * 4. the client will cache a copy of the configuration obtained from the server in the local file system. In case of service unavailability or network failure, the configuration can still be restored locally
-5. The application can get the latest configuration from the Apollo client, subscribe to configuration update notifications
+3. After the client gets the latest configuration of the application from the Apollo Configuration Center server, it will be saved in memory.
+4. The client will cache a copy of the configuration obtained from the server in the local file system. In case of service unavailability or network failure, the configuration can still be restored locally.
+5. The application can get the latest configuration from the Apollo client, subscribe to configuration update notifications.
 
 # V. Local Development Mode
 
@@ -1136,7 +1135,7 @@ Modify the `/opt/settings/server.properties` (Mac/Linux) or `C:\opt\settings\ser
 env=Local
 ```
 
-For more ways to configure the environment, please refer to [1.2.4.1 Environment](#_1241-environment)
+For more ways to configure the environment, please refer to [1.2.4.1 Environment](en/usage/java-sdk-user-guide?id=_1241-environment)
 
 ## 5.2 Preparing local configuration files
 

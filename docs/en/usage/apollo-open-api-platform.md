@@ -19,7 +19,7 @@ Apollo administrator creates the third-party application at `http://{portal_addr
 
 #### 2.2 Authorization for registered third-party apps
 
-Third-party applications should not be able to manipulate any Namespace configuration, so you need to bind the token to a Namespace that can be manipulated. Apollo administrators assign rights to the token in the http://{portal_address}/open/manage.html page. After the assignment, the third-party application can manage the configuration of the authorized Namespace through the Http REST interface provided by Apollo.
+Third-party applications should not be able to manipulate any Namespace configuration, so you need to bind the token to a Namespace that can be manipulated. Apollo administrators assign rights to the token in the `http://{portal_address}/open/manage.html` page. After the assignment, the third-party application can manage the configuration of the authorized Namespace through the Http REST interface provided by Apollo.
 
 #### 2.3 Third-party application calls Apollo Open API
 
@@ -57,7 +57,7 @@ ApolloOpenApiClient client = ApolloOpenApiClient.newBuilder()
 
 You can then operate the Apollo Open API directly through the `ApolloOpenApiClient` interface, see the Rest interface documentation below for a description of the interface.
 
-##### 2.3.3 .
+##### 2.3.3 .Net core application calls Apollo Open API
 
 Net core also provides a client for the open api, see https://github.com/ctripcorp/apollo.net/pull/77 for details
 
@@ -85,10 +85,10 @@ Encapsulated bash functions, the underlying use of curl to send HTTP requests
 
 ##### 3.2.1 Get App's environment, cluster information
 
-* **URL** : http://{portal_address}/openapi/v1/apps/{appId}/envclusters
+* **URL** : `http://{portal_address}/openapi/v1/apps/{appId}/envclusters`
 * **Method** : GET
 * **Request Params** : None
-* **Return ValueSample**.
+* **Response Sample**：
 
 ``` json
 [
@@ -118,7 +118,7 @@ Encapsulated bash functions, the underlying use of curl to send HTTP requests
 
 ##### 3.2.2 Get App information
 
-* **URL** : http://{portal_address}/openapi/v1/apps
+* **URL** : `http://{portal_address}/openapi/v1/apps`
 * **Method** : GET
 * **Request Params** : 
 
@@ -126,7 +126,7 @@ Encapsulated bash functions, the underlying use of curl to send HTTP requests
 | -------------- | -------- | ------ | ------------------------------------------------------------ |
 | appIds         | false    | String | List of appId, separated by commas, or return all app information if empty |
 
-* **Return ValueSample**.
+* **Response Sample**:
 
 ``` json
 [
@@ -161,10 +161,10 @@ Encapsulated bash functions, the underlying use of curl to send HTTP requests
 
 ##### 3.2.3 Getting the cluster interface 
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}`
 * **Method** : GET
 * **Request Params** : None
-* **Return ValueSample**.
+* **Response Sample**:
 
 ``` json
 {
@@ -181,10 +181,10 @@ Encapsulated bash functions, the underlying use of curl to send HTTP requests
 
 Clusters can be created through this interface, and calling this interface requires granting the third-party APP administrative privileges to the target APP.
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters`
 * **Method** : POST
 * **Request Params** : None
-* **Request Content (Request Body, JSON format) 
+* **Request Content** (Request Body, JSON format) 
 
 | Parameter Name      | Required | Type   | Description                                                  |
 | ------------------- | -------- | ------ | ------------------------------------------------------------ |
@@ -192,7 +192,7 @@ Clusters can be created through this interface, and calling this interface requi
 | appId               | true     | String | The AppId to which the Cluster belongs                       |
 | dataChangeCreatedBy | true     | String | The creator of the namespace, in the format of the domain account, which is the User ID of the sso system |
 
-* **Return Value Sample**: ``` json 
+* **Response Sample**: 
 
 ``` json
 {
@@ -207,10 +207,10 @@ Clusters can be created through this interface, and calling this interface requi
 
 ##### 3.2.5 Interface to get information about all Namespaces under a cluster
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces`
 * **Method**: GET
 * **Request Params**: None
-* **Return ValueSample**:
+* **Response Sample**:
 
 ``` json
 [
@@ -277,7 +277,7 @@ Clusters can be created through this interface, and calling this interface requi
 * **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}
 * **Method** : GET
 * **Request Params** : None
-* **Request Params** : None
+* **Response Sample** : 
 
 ``` json
 {
@@ -308,10 +308,10 @@ Clusters can be created through this interface, and calling this interface requi
 
 Namespace can be created through this interface, and calling this interface requires granting the third-party app administrative privileges to the target app.
 
-* **URL** : http://{portal_address}/openapi/v1/apps/{appId}/appnamespaces
+* **URL** : `http://{portal_address}/openapi/v1/apps/{appId}/appnamespaces`
 * **Method** : POST
 * **Request Params** : None
-* **Request Content (Request Body, JSON format) 
+* **Request Content** (Request Body, JSON format) 
 
 | Parameter Name      | Required | Type    | Description                                                  |
 | ------------------- | -------- | ------- | ------------------------------------------------------------ |
@@ -322,7 +322,7 @@ Namespace can be created through this interface, and calling this interface requ
 | comment             | false    | String  | Namespace description                                        |
 | dataChangeCreatedBy | true     | String  | The creator of the namespace, in the format of the domain account, which is the User ID of the sso system |
 
-* **Return Value Sample**: 
+* **Response Sample**: 
 
 ``` json
 {
@@ -354,7 +354,7 @@ This interface is the interface used to get whether the current namespace is loc
 * **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/lock
 * **Method** : GET
 * **Request Params** : None
-* **Return Value Sample (unlocked) ** : 
+* **Response Sample (unlocked)** : 
 
 ``` json
 {
@@ -363,7 +363,7 @@ This interface is the interface used to get whether the current namespace is loc
 }
 ```
 
-* **Return value Sample(isLocked)** :
+* **Response Sample (isLocked)** :
 
 ``` json
 {
@@ -375,10 +375,10 @@ This interface is the interface used to get whether the current namespace is loc
 
 ##### 3.2.9 Reading the configuration interface 
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}`
 * **Method** : GET
 * **Request Params** : None
-* **Request Params** : None
+* **Response Sample** : 
 
 ``` json
 {
@@ -394,10 +394,10 @@ This interface is the interface used to get whether the current namespace is loc
 
 ##### 3.2.10 New configuration interface 
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items`
 * **Method** : POST
 * **Request Params** : None
-* **Request Content (Request Body, JSON format) **
+* **Request Content** (Request Body, JSON format)
 
 | Parameter Name      | Required | Type   | Description                                                  |
 | ------------------- | -------- | ------ | ------------------------------------------------------------ |
@@ -418,7 +418,7 @@ This interface is the interface used to get whether the current namespace is loc
 
 ```
 
-* **Return ValueSample**.
+* **Response Sample**:
 
 ``` json
 {
@@ -434,9 +434,7 @@ This interface is the interface used to get whether the current namespace is loc
 
 ##### 3.2.11 Modifying the configuration interface
 
-##### 3.2.11 Modifying the configuration interface
-
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}`
 * **Method** : PUT
 * **Request Params** :
 
@@ -444,7 +442,7 @@ This interface is the interface used to get whether the current namespace is loc
 | ----------------- | -------- | ------- | ------------------------------------------------------------ |
 | createIfNotExists | false    | Boolean | Whether to create automatically when the configuration does not exist |
 
-* **Request Body, JSON format**: **Request Body 
+* **Request Body, JSON format**:
 
 | parameter name           | required | type   | description                                                  |
 | ------------------------ | -------- | ------ | ------------------------------------------------------------ |
@@ -454,7 +452,7 @@ This interface is the interface used to get whether the current namespace is loc
 | dataChangeLastModifiedBy | true     | String | The modifier of the item, in the format of the domain account, which is the User ID of the sso system |
 | dataChangeCreatedBy      | false    | String | Required when createIfNotExists is true. item's creator, in the format of the domain account, i.e. sso system's User ID |
 
-* **Request body sample** :
+* **Request Body Sample** :
 
 ```json
 {
@@ -465,12 +463,12 @@ This interface is the interface used to get whether the current namespace is loc
 }
 ```
 
-* **Return value** : none
+* **Response Value** : none
 
 
 ##### 3.2.12 Deleting configuration interfaces
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}? operator={operator}
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items/{key}? operator={operator}`
 * **Method** : DELETE
 * **Request Params** :
 
@@ -479,11 +477,11 @@ This interface is the interface used to get whether the current namespace is loc
 | key            | true     | String | The configured key. non-properties format, the key is fixed to `content` |
 | operator       | true     | String | Delete the operator of the configuration, domain account     |
 
-* **return value** : None
+* **Response Value** : None
 
 ##### 3.2.13 Publish Configuration Interface
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/releases
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/releases`
 * **Method** : POST
 * **Request Params** : None
 * **Request Body** : None
@@ -494,7 +492,7 @@ This interface is the interface used to get whether the current namespace is loc
 | releaseComment | false    | String | The comment of the release, which cannot exceed 256 characters in length |
 | releasedBy     | true     | String | The publisher, domain account, and note: If `namespace.lock.switch` in `ApolloConfigDB.ServerConfig` is set to true (default is false), then the environment does not allow the publisher and editor to be the same person. . So if the editor is zhanglea, the publisher can no longer be zhanglea. |
 
-* **Request Body example** :
+* **Request Body Example** :
 
 ```json
 {
@@ -504,7 +502,7 @@ This interface is the interface used to get whether the current namespace is loc
 }
 ```
 
-* **Return ValueSample** :
+* **Response Sample** :
 
 ``` json
 {
@@ -525,10 +523,10 @@ This interface is the interface used to get whether the current namespace is loc
 
 ##### 3.2.14 Interface to get the published configuration currently in effect for a Namespace 
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/releases/ latest
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/releases/ latest`
 * **Method** : GET
 * **Request Params** : None
-* **Request Params** : None
+* **Response Sample** : None
 
 ``` json
 {
@@ -549,7 +547,7 @@ This interface is the interface used to get whether the current namespace is loc
 
 ##### 3.2.15 Rollback of published configuration interface 
 
-* **URL** : http://{portal_address}/openapi/v1/envs/{env}/releases/{releaseId}/rollback
+* **URL** : `http://{portal_address}/openapi/v1/envs/{env}/releases/{releaseId}/rollback`
 * **Method** : PUT
 * **Request Params** :
 
@@ -557,7 +555,7 @@ This interface is the interface used to get whether the current namespace is loc
 | -------------- | -------- | ------ | ----------------------------------------------- |
 | operator       | true     | String | Deletes the configured operator, domain account |
 
-* **Return value** : None
+* **Response Value** : None
 
 ### IV. Error code description
 
